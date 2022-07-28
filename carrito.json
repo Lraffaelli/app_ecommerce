@@ -5,12 +5,28 @@
     "timestamp": 1658973841546
   },
   {
-    "productos": [],
+    "productos": {
+      "nombre": "casa",
+      "descripcion": "casa de 3 habiitaciones",
+      "codigo": "32868743",
+      "precio": "22456",
+      "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-48.png",
+      "id": 3,
+      "timestamp": 1658974436097
+    },
     "id": 2,
     "timestamp": 1658976021388
   },
   {
-    "productos": [],
+    "productos": {
+      "nombre": "calculadora",
+      "descripcion": "calculadora verde",
+      "codigo": "12345",
+      "precio": "290.4",
+      "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-48.png",
+      "id": 1,
+      "timestamp": 1658974295230
+    },
     "id": 3,
     "timestamp": 1658976022652
   }

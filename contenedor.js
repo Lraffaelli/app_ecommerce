@@ -55,15 +55,15 @@ class Contenedor {
   }
 
 
-  async putItem(id,newItem){
+  async putItem(newItem, id){
     try {
       let data = await fs.promises.readFile(this.ruta, "utf-8");
-      productos = JSON.parse(data);           
+      const productos = JSON.parse(data);           
       let index = productos.findIndex(item =>item.id==id)
       newItem.id=id      
       productos[index]=newItem
       await fs.promises.writeFile(
-        this.ruta, JSON.stringify(productos)       
+        this.ruta, JSON.stringify(productos, null, 2)       
       );
       
       return productos
