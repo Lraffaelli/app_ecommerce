@@ -34,13 +34,14 @@ class Contenedor {
 
   async addItem(item){
     const objs = await this.getAll()
+    const date= Date.now()
     let newId
     if(objs.length==0){
       newId=1
     }else{
       newId= objs[objs.length-1].id+1
     }
-    const newObj= {...item, id:newId}
+    const newObj= {...item, id:newId, timestamp:date}
     objs.push(newObj)
     try {     
       await fs.promises.writeFile(

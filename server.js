@@ -11,7 +11,7 @@ const carritoApi = new Contenedor("./carrito.json");
 const routerApi = Router();
 const routerProductos = Router();
 const routerCarrito = Router();
-const administrador= false;
+const administrador= true;
 
 app.use("/", routerApi);
 app.use('/api/productos',routerProductos)
@@ -85,8 +85,10 @@ routerCarrito.get('/:id/productos', async (req,res)=>{
 })
 
 routerCarrito.post('/:id/productos', async (req,res)=>{  
-  const carrito = await carritoApi.getAll(req.params.id)
-  const producto = await productosApi.getAll(req.body.id)
+  const carrito = await carritoApi.getById(req.params.id)
+  console.log(carrito)
+  const producto = await productosApi.getById(req.body.id)
+  console.log(producto)
   carrito.productos.push(producto)
   await carritoApi.putItem(carrito, req.params.id)
   res.end()
