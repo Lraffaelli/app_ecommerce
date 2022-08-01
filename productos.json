@@ -18,12 +18,21 @@
     "timestamp": 1658974356709
   },
   {
-    "nombre": "casa",
+    "nombre": "casa chica",
     "descripcion": "casa de 3 habiitaciones",
     "codigo": "32868743",
     "precio": "22456",
     "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-48.png",
     "id": 3,
     "timestamp": 1658974436097
+  },
+  {
+    "nombre": "casa grande",
+    "descripcion": "casa de 8 habiitaciones",
+    "codigo": "32868743",
+    "precio": "22456",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-48.png",
+    "id": 4,
+    "timestamp": 1659307628342
   }
 ]

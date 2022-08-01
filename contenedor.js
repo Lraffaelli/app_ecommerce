@@ -56,14 +56,15 @@ class Contenedor {
 
 
   async putItem(newItem, id){
+            
     try {
       let data = await fs.promises.readFile(this.ruta, "utf-8");
-      const productos = JSON.parse(data);           
-      let index = productos.findIndex(item =>item.id==id)
-      newItem.id=id      
+      const productos = JSON.parse(data);                 
+      let index = productos.findIndex(item =>item.id==id)           
+      newItem.id=id
       productos[index]=newItem
       await fs.promises.writeFile(
-        this.ruta, JSON.stringify(productos, null, 2)       
+        this.ruta, JSON.stringify(productos, null,2 )       
       );
       
       return productos
@@ -78,7 +79,19 @@ class Contenedor {
       let data = await fs.promises.readFile(this.ruta, "utf-8");
       let productos = JSON.parse(data);
         const newProducto = productos.filter(producto => producto.id !== id);        
-        await fs.promises.writeFile(this.ruta, JSON.stringify(newProducto)); 
+        await fs.promises.writeFile(this.ruta, JSON.stringify(newProducto,null, 2)); 
+           
+    } catch (error) {
+      console.log(`Error al leer el archivo: ${error}`);
+    }
+  }
+  async deleteItemCarrito(carritoId,id_prod) {
+    console.log(carritoId.productos)
+    console.log(id_prod)
+
+    try {
+        const newCarrito = carritoId.productos.filter(producto => producto.id !== id_prod);        
+        await fs.promises.writeFile(this.ruta, JSON.stringify(newCarrito,null, 2)); 
            
     } catch (error) {
       console.log(`Error al leer el archivo: ${error}`);
