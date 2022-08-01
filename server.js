@@ -89,10 +89,8 @@ routerCarrito.post('/:id/productos', async (req,res)=>{
   const carrito = await carritoApi.getById(id)  
   const items = await productosApi.getAll()
   let selectItem = items.find(item =>item.id==req.body.id)
-  console.log(selectItem)
  
-  carrito.productos.push(selectItem) 
-  console.log(carrito)
+  carrito.productos.push(selectItem)   
      
   await carritoApi.putItem(carrito, id)
   res.end()
@@ -102,7 +100,10 @@ routerCarrito.delete('/:id/productos/:id_prod', async (req,res)=>{
   let id = Number(req.params.id)
   let id_prod = Number(req.params.id_prod)
   const carritoId = await carritoApi.getById(id)
-  await carritoApi.deleteItemCarrito(carritoId,id_prod)
+  console.log(carritoId)
+  const items = carritoId.productos.filter(producto => producto.id !== id_prod);
+  const carrito ={...carritoId,productos:items}
+  await carritoApi.deleteItem(carrito,id)
   res.end()
 })
 
